@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- ✅ Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>web-restaurant</title>
+    <style>
+      body {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+  <script type="module">
+    import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js";
+    Chatbot.init({
+      chatflowid: "ec28709c-5a7d-4543-aa63-cf45e894d901",
+      apiHost: "https://flowisetools-production.up.railway.app",
+      chatflowConfig: {
+        // topK: 2
+      },
+      theme: {
+        button: {
+          backgroundColor: "#3B81F6",
+          right: -10,
+          bottom: -25,
+          size: 60,
+          dragAndDrop: true,
+          iconColor: "white",
+          customIconSrc:
+            "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/google-messages.svg",
+          autoWindowOpen: {
+            autoOpen: true,
+            openDelay: 2,
+            autoOpenOnMobile: false,
+          },
+          style: {
+            borderRadius: "50%", // Menambahkan border radius untuk tombol bulat
+            boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)", // Efek bayangan
+            transition: "transform 0.3s", // Animasi saat hover
+          },
+          onHoverStyle: {
+            transform: "scale(1.1)", // Membesarkan tombol saat dihover
+          },
+        },
+        tooltip: {
+          showTooltip: true,
+          tooltipMessage: "Hi There 👋!",
+          tooltipBackgroundColor: "black",
+          tooltipTextColor: "white",
+          tooltipFontSize: 16,
+        },
+        chatWindow: {
+          showTitle: true,
+          title: "Chat AI Restoran",
+          titleAvatarSrc:
+            "https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/google-messages.svg",
+          showAgentMessages: true,
+          welcomeMessage: "Hallo Pelanggan! Ada yang bisa kami bantu!!",
+          errorMessage: "This is a custom error message",
+          backgroundColor: "#ffffff",
+          backgroundImage: "", // Kosongkan jika tidak ada gambar
+          height: 576,
+          width: 500,
+          fontSize: 16,
+          starterPromptFontSize: 15,
+          clearChatOnReload: false,
+          botMessage: {
+            backgroundColor: "#f7f8ff",
+            textColor: "#303235",
+            showAvatar: true,
+            avatarSrc:
+              "https://raw.githubusercontent.com/khaerulilman/orderpng/refs/heads/main/pngtree-cute-cook-robot-cooking-in-the-kitchen-png-image_13642605.webp",
+          },
+          userMessage: {
+            backgroundColor: "#3B81F6",
+            textColor: "#ffffff",
+            showAvatar: true,
+            avatarSrc:
+              "https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/usericon.png",
+            style: {
+              borderRadius: "12px", // Membuat pesan pengguna lebih rounded
+            },
+          },
+          textInput: {
+            placeholder: "Silahkan Tanyakan",
+            backgroundColor: "#ffffff",
+            textColor: "#303235",
+            sendButtonColor: "#3B81F6",
+            maxChars: 1000,
+            maxCharsWarningMessage:
+              "You exceeded the characters limit. Please input less than 1000 characters.",
+            autoFocus: true,
+          },
+        },
+      },
+    });
+  </script>
+</html>
